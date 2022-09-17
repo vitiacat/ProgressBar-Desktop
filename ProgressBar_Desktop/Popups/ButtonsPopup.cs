@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace ProgressBar_Desktop
 {
-    public partial class ButtonsPopout : Form
+    public partial class ButtonsPopup : Form
     {
 
-        public ButtonsPopout()
+        public ButtonsPopup()
         {
             InitializeComponent();
             Button[] buttons = new Button[4];

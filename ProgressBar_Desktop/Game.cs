@@ -20,17 +20,17 @@ namespace ProgressBar_Desktop
         private int oldPointRemoveTime = 0;
         private int newPointTime = 0;
         private int newSegmentTime = 0;
-        private int newPopoutsTime = 0;
+        private int newPopupTime = 0;
         private int invulnerableTime = 0;
         private bool isLose = false;
         private int maxDistance = 150;
 
-        private readonly List<Type> popoutTypes = new List<Type>() { typeof(TextPopout), typeof(MovementPopout), typeof(ButtonsPopout), typeof(MinePopout) };
+        private readonly List<Type> popupTypes = new List<Type>() { typeof(TextPopup), typeof(MovementPopup), typeof(ButtonsPopup), typeof(MinePopup) };
         private readonly Size PROGRESSBAR_SIZE = new Size(250, 50);
         private const int INVULNERABLE_TIME = 120;
         private readonly List<Segment> segments = new List<Segment>();
         private readonly List<SegmentType> collectedSegments = new List<SegmentType>();
-        private readonly List<Form> popouts = new List<Form>();
+        private readonly List<Form> popups = new List<Form>();
         private readonly Random random = new Random();
         private readonly ResultsObj resultsObj = new ResultsObj(0, 0, 0);
         private readonly BufferedPanel canvas;
@@ -67,7 +67,7 @@ namespace ProgressBar_Desktop
             oldPointRemoveTime++;
             newPointTime++;
             newSegmentTime++;
-            newPopoutsTime++;
+            newPopupTime++;
             if(Config.IsInvulnerable) invulnerableTime++;
             if (invulnerableTime >= 0)
             {
@@ -89,13 +89,13 @@ namespace ProgressBar_Desktop
                 newSegmentTime = 0;
             }
 
-            if(newPopoutsTime > Config.PopoutTime && !isLose && popouts.Count < Config.PopoutsMaxCount && Config.IsPopoutsEnabled)
+            if(newPopupTime > Config.PopupTime && !isLose && popups.Count < Config.PopupsMaxCount && Config.IsPopupsEnabled)
             {
-                var popout = (Form) Activator.CreateInstance(popoutTypes[random.Next(popoutTypes.Count)]);
-                popout.Show(); 
-                popout.Location = new Point(random.Next(0, ClientSize.Width), random.Next(0, ClientSize.Height));
-                popouts.Add(popout);
-                newPopoutsTime = 0;
+                var popup = (Form) Activator.CreateInstance(popupTypes[random.Next(popupTypes.Count)]);
+                popup.Show(); 
+                popup.Location = new Point(random.Next(0, ClientSize.Width), random.Next(0, ClientSize.Height));
+                popups.Add(popup);
+                newPopupTime = 0;
             }
 
             foreach (Segment segment in segments.ToArray())
@@ -130,7 +130,7 @@ namespace ProgressBar_Desktop
                             }
                             break;
                         case SegmentType.RM_POPOUTS:
-                            popouts.GetRange(0, Math.Min(popouts.Count, 5)).ForEach(f => f.Close());
+                            popups.GetRange(0, Math.Min(popups.Count, 5)).ForEach(f => f.Close());
                             collectedSegments.RemoveRange(0, Math.Min(10 / Config.SegmentValue, collectedSegments.Count));
                             break;
                         case SegmentType.INVULNERABLE:
@@ -166,19 +166,19 @@ namespace ProgressBar_Desktop
 
             bool isContains = false;
 
-            foreach (Form popout in popouts.ToArray())
+            foreach (Form popup in popups.ToArray())
             {
-                if(!popout.IsHandleCreated)
+                if(!popup.IsHandleCreated)
                 {
-                    popouts.Remove(popout);
+                    popups.Remove(popup);
                     resultsObj.ClosedPopupsCount++;
                     continue;
                 }
 
-                if (new RectangleF(popout.Location, popout.Size).IntersectsWith(rect))
+                if (new RectangleF(popup.Location, popup.Size).IntersectsWith(rect))
                 {
                     isContains = true;
-                    if(popout.GetType() == typeof(MinePopout))
+                    if(popup.GetType() == typeof(MinePopup))
                     {
                         Lose();
                     }
@@ -262,7 +262,7 @@ namespace ProgressBar_Desktop
 
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
-            popouts.ForEach(f => f.Close());
+            popups.ForEach(f => f.Close());
         }
 
         private void Lose()
@@ -272,7 +272,7 @@ namespace ProgressBar_Desktop
             isLose = true;
             collectedSegments.Clear();
             collectedSegments.AddRange(Enumerable.Repeat(SegmentType.FATAL, 100 / Config.SegmentValue));
-            popouts.ForEach(f => f.Close());
+            popups.ForEach(f => f.Close());
         }
     }
 }

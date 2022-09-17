@@ -1,6 +1,6 @@
 ﻿namespace ProgressBar_Desktop
 {
-    partial class ButtonsPopout
+    partial class ButtonsPopup
     {
         /// <summary>
         /// Required designer variable.

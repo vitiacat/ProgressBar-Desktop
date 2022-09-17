@@ -83,36 +83,36 @@
       <DependentUpon>Results.cs</DependentUpon>
     </Compile>
     <Compile Include="Segment.cs" />
-    <Compile Include="Popouts\MovementPopout.cs">
+    <Compile Include="Popups\MovementPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popouts\MovementPopout.Designer.cs">
-      <DependentUpon>MovementPopout.cs</DependentUpon>
+    <Compile Include="Popups\MovementPopup.Designer.cs">
+      <DependentUpon>MovementPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Popouts\ButtonsPopout.cs">
+    <Compile Include="Popups\ButtonsPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popouts\ButtonsPopup.Designer.cs">
-      <DependentUpon>ButtonsPopout.cs</DependentUpon>
+    <Compile Include="Popups\ButtonsPopup.Designer.cs">
+      <DependentUpon>ButtonsPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Popouts\MinePopout.cs">
+    <Compile Include="Popups\MinePopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popouts\MinePopout.Designer.cs">
-      <DependentUpon>MinePopout.cs</DependentUpon>
+    <Compile Include="Popups\MinePopup.Designer.cs">
+      <DependentUpon>MinePopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Popouts\TextPopout.cs">
+    <Compile Include="Popups\TextPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popouts\TextPopout.Designer.cs">
-      <DependentUpon>TextPopout.cs</DependentUpon>
+    <Compile Include="Popups\TextPopup.Designer.cs">
+      <DependentUpon>TextPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="AboutGame.resx">
       <DependentUpon>AboutGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popouts\ButtonsPopout.resx">
-      <DependentUpon>ButtonsPopout.cs</DependentUpon>
+    <EmbeddedResource Include="Popups\ButtonsPopup.resx">
+      <DependentUpon>ButtonsPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -130,17 +130,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Popouts\MovementPopout.resx">
-      <DependentUpon>MovementPopout.cs</DependentUpon>
+    <EmbeddedResource Include="Popups\MovementPopup.resx">
+      <DependentUpon>MovementPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Results.resx">
       <DependentUpon>Results.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popouts\MinePopout.resx">
-      <DependentUpon>MinePopout.cs</DependentUpon>
+    <EmbeddedResource Include="Popups\MinePopup.resx">
+      <DependentUpon>MinePopup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popouts\TextPopout.resx">
-      <DependentUpon>TextPopout.cs</DependentUpon>
+    <EmbeddedResource Include="Popups\TextPopup.resx">
+      <DependentUpon>TextPopup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

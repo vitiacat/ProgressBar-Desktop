@@ -1,6 +1,6 @@
 ﻿namespace ProgressBar_Desktop
 {
-    partial class MinePopout
+    partial class MinePopup
     {
         /// <summary>
         /// Required designer variable.

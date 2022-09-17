@@ -35,14 +35,14 @@
             this.segmentSpeed = new System.Windows.Forms.TrackBar();
             this.startGameButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.popoutsMaxCountLabel = new System.Windows.Forms.Label();
-            this.popoutsMaxCount = new System.Windows.Forms.TrackBar();
-            this.popoutTimeLabel = new System.Windows.Forms.Label();
-            this.popoutTime = new System.Windows.Forms.TrackBar();
+            this.popupMaxCountLabel = new System.Windows.Forms.Label();
+            this.popupMaxCount = new System.Windows.Forms.TrackBar();
+            this.popupTimeLabel = new System.Windows.Forms.Label();
+            this.popupTime = new System.Windows.Forms.TrackBar();
             this.startNormalGameButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.segmentFluctuationLabel = new System.Windows.Forms.Label();
-            this.popoutsEnabled = new System.Windows.Forms.CheckBox();
+            this.popupEnabled = new System.Windows.Forms.CheckBox();
             this.segmentFluctuation = new System.Windows.Forms.TrackBar();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.aboutGameButton = new System.Windows.Forms.Button();
@@ -50,8 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.segmentTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segmentSpeed)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.popoutsMaxCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popoutTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMaxCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupTime)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.segmentFluctuation)).BeginInit();
             this.SuspendLayout();
@@ -121,10 +121,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.popoutsMaxCountLabel);
-            this.groupBox2.Controls.Add(this.popoutsMaxCount);
-            this.groupBox2.Controls.Add(this.popoutTimeLabel);
-            this.groupBox2.Controls.Add(this.popoutTime);
+            this.groupBox2.Controls.Add(this.popupMaxCountLabel);
+            this.groupBox2.Controls.Add(this.popupMaxCount);
+            this.groupBox2.Controls.Add(this.popupTimeLabel);
+            this.groupBox2.Controls.Add(this.popupTime);
             this.groupBox2.Location = new System.Drawing.Point(293, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(271, 164);
@@ -132,45 +132,45 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Поп-апы";
             // 
-            // popoutsMaxCountLabel
+            // popupMaxCountLabel
             // 
-            this.popoutsMaxCountLabel.AutoSize = true;
-            this.popoutsMaxCountLabel.Location = new System.Drawing.Point(3, 78);
-            this.popoutsMaxCountLabel.Name = "popoutsMaxCountLabel";
-            this.popoutsMaxCountLabel.Size = new System.Drawing.Size(91, 13);
-            this.popoutsMaxCountLabel.TabIndex = 5;
-            this.popoutsMaxCountLabel.Text = "Макс. кол-во: 20";
+            this.popupMaxCountLabel.AutoSize = true;
+            this.popupMaxCountLabel.Location = new System.Drawing.Point(3, 78);
+            this.popupMaxCountLabel.Name = "popupMaxCountLabel";
+            this.popupMaxCountLabel.Size = new System.Drawing.Size(91, 13);
+            this.popupMaxCountLabel.TabIndex = 5;
+            this.popupMaxCountLabel.Text = "Макс. кол-во: 20";
             // 
-            // popoutsMaxCount
+            // popupMaxCount
             // 
-            this.popoutsMaxCount.Location = new System.Drawing.Point(6, 97);
-            this.popoutsMaxCount.Maximum = 100;
-            this.popoutsMaxCount.Minimum = 1;
-            this.popoutsMaxCount.Name = "popoutsMaxCount";
-            this.popoutsMaxCount.Size = new System.Drawing.Size(196, 45);
-            this.popoutsMaxCount.TabIndex = 4;
-            this.popoutsMaxCount.Value = 20;
-            this.popoutsMaxCount.ValueChanged += new System.EventHandler(this.popoutsMaxCount_ValueChanged);
+            this.popupMaxCount.Location = new System.Drawing.Point(6, 97);
+            this.popupMaxCount.Maximum = 100;
+            this.popupMaxCount.Minimum = 1;
+            this.popupMaxCount.Name = "popupMaxCount";
+            this.popupMaxCount.Size = new System.Drawing.Size(196, 45);
+            this.popupMaxCount.TabIndex = 4;
+            this.popupMaxCount.Value = 20;
+            this.popupMaxCount.ValueChanged += new System.EventHandler(this.popupsMaxCount_ValueChanged);
             // 
-            // popoutTimeLabel
+            // popupTimeLabel
             // 
-            this.popoutTimeLabel.AutoSize = true;
-            this.popoutTimeLabel.Location = new System.Drawing.Point(3, 13);
-            this.popoutTimeLabel.Name = "popoutTimeLabel";
-            this.popoutTimeLabel.Size = new System.Drawing.Size(64, 13);
-            this.popoutTimeLabel.TabIndex = 3;
-            this.popoutTimeLabel.Text = "Время: 100";
+            this.popupTimeLabel.AutoSize = true;
+            this.popupTimeLabel.Location = new System.Drawing.Point(3, 13);
+            this.popupTimeLabel.Name = "popupTimeLabel";
+            this.popupTimeLabel.Size = new System.Drawing.Size(64, 13);
+            this.popupTimeLabel.TabIndex = 3;
+            this.popupTimeLabel.Text = "Время: 100";
             // 
-            // popoutTime
+            // popupTime
             // 
-            this.popoutTime.Location = new System.Drawing.Point(6, 32);
-            this.popoutTime.Maximum = 500;
-            this.popoutTime.Minimum = 1;
-            this.popoutTime.Name = "popoutTime";
-            this.popoutTime.Size = new System.Drawing.Size(196, 45);
-            this.popoutTime.TabIndex = 2;
-            this.popoutTime.Value = 100;
-            this.popoutTime.ValueChanged += new System.EventHandler(this.popoutsTime_ValueChanged);
+            this.popupTime.Location = new System.Drawing.Point(6, 32);
+            this.popupTime.Maximum = 500;
+            this.popupTime.Minimum = 1;
+            this.popupTime.Name = "popupTime";
+            this.popupTime.Size = new System.Drawing.Size(196, 45);
+            this.popupTime.TabIndex = 2;
+            this.popupTime.Value = 100;
+            this.popupTime.ValueChanged += new System.EventHandler(this.popupTime_ValueChanged);
             // 
             // startNormalGameButton
             // 
@@ -185,7 +185,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.segmentFluctuationLabel);
-            this.groupBox3.Controls.Add(this.popoutsEnabled);
+            this.groupBox3.Controls.Add(this.popupEnabled);
             this.groupBox3.Controls.Add(this.segmentFluctuation);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.groupBox2);
@@ -205,15 +205,15 @@
             this.segmentFluctuationLabel.TabIndex = 5;
             this.segmentFluctuationLabel.Text = "Колебания: 4";
             // 
-            // popoutsEnabled
+            // popupEnabled
             // 
-            this.popoutsEnabled.AutoSize = true;
-            this.popoutsEnabled.Location = new System.Drawing.Point(293, 189);
-            this.popoutsEnabled.Name = "popoutsEnabled";
-            this.popoutsEnabled.Size = new System.Drawing.Size(69, 17);
-            this.popoutsEnabled.TabIndex = 6;
-            this.popoutsEnabled.Text = "Поп-апы";
-            this.popoutsEnabled.UseVisualStyleBackColor = true;
+            this.popupEnabled.AutoSize = true;
+            this.popupEnabled.Location = new System.Drawing.Point(293, 189);
+            this.popupEnabled.Name = "popupEnabled";
+            this.popupEnabled.Size = new System.Drawing.Size(69, 17);
+            this.popupEnabled.TabIndex = 6;
+            this.popupEnabled.Text = "Поп-апы";
+            this.popupEnabled.UseVisualStyleBackColor = true;
             // 
             // segmentFluctuation
             // 
@@ -266,8 +266,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.segmentSpeed)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.popoutsMaxCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popoutTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMaxCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupTime)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.segmentFluctuation)).EndInit();
@@ -285,13 +285,13 @@
         private System.Windows.Forms.TrackBar segmentTime;
         private System.Windows.Forms.Button startGameButton;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label popoutTimeLabel;
-        private System.Windows.Forms.TrackBar popoutTime;
-        private System.Windows.Forms.Label popoutsMaxCountLabel;
-        private System.Windows.Forms.TrackBar popoutsMaxCount;
+        private System.Windows.Forms.Label popupTimeLabel;
+        private System.Windows.Forms.TrackBar popupTime;
+        private System.Windows.Forms.Label popupMaxCountLabel;
+        private System.Windows.Forms.TrackBar popupMaxCount;
         private System.Windows.Forms.Button startNormalGameButton;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox popoutsEnabled;
+        private System.Windows.Forms.CheckBox popupEnabled;
         private System.Windows.Forms.Label segmentFluctuationLabel;
         private System.Windows.Forms.TrackBar segmentFluctuation;
         private System.Windows.Forms.Label scoreLabel;

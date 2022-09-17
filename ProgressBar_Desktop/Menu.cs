@@ -38,14 +38,14 @@ namespace ProgressBar_Desktop
             segTimeLabel.Text = "Время: " + segmentTime.Value;
         }
 
-        private void popoutsTime_ValueChanged(object sender, EventArgs e)
+        private void popupTime_ValueChanged(object sender, EventArgs e)
         {
-            popoutTimeLabel.Text = "Время: " + popoutTime.Value;
+            popupTimeLabel.Text = "Время: " + popupTime.Value;
         }
 
-        private void popoutsMaxCount_ValueChanged(object sender, EventArgs e)
+        private void popupsMaxCount_ValueChanged(object sender, EventArgs e)
         {
-            popoutsMaxCountLabel.Text = "Макс. кол-во: " + popoutsMaxCount.Value;
+            popupMaxCountLabel.Text = "Макс. кол-во: " + popupMaxCount.Value;
         }
 
         private void segmentFluctuation_ValueChanged(object sender, EventArgs e)
@@ -58,10 +58,10 @@ namespace ProgressBar_Desktop
             Config.SegmentSpeed = segmentSpeed.Value / 10f; 
             Config.SegmentTime = segmentTime.Value;
             Config.SegmentFluctuation = segmentFluctuation.Value / 10f;
-            Config.PopoutTime = popoutTime.Value;
-            Config.PopoutsMaxCount = popoutsMaxCount.Value;
+            Config.PopupTime = popupTime.Value;
+            Config.PopupsMaxCount = popupMaxCount.Value;
             Config.SegmentValue = 5;
-            Config.IsPopoutsEnabled = popoutsEnabled.Checked;
+            Config.IsPopupsEnabled = popupEnabled.Checked;
             Config.IsCustomGame = true;
             Config.Segments = Enum.GetValues(typeof(SegmentType)).OfType<SegmentType>().ToList();
             Hide();

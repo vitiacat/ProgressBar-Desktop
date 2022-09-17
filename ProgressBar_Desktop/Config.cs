@@ -12,9 +12,9 @@ namespace ProgressBar_Desktop
         public static int SegmentTime { get; set; } = 120;
         public static int SegmentValue { get; set; } = 5;
         public static float SegmentFluctuation { get; set; } = 0f;
-        public static int PopoutTime { get; set; } = 0;
-        public static bool IsPopoutsEnabled { get; set; } = false;
-        public static int PopoutsMaxCount { get; set; } = 20;
+        public static int PopupTime { get; set; } = 0;
+        public static bool IsPopupsEnabled { get; set; } = false;
+        public static int PopupsMaxCount { get; set; } = 20;
         public static List<SegmentType> Segments { get; set; } = new List<SegmentType>();
         public static bool IsCustomGame { get; set; } = false;
         public static bool IsInvulnerable { get; set; } = false;

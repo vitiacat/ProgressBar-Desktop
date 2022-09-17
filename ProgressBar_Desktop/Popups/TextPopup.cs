@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProgressBar_Desktop
 {
-    public partial class MinePopout : Form
+    public partial class TextPopup : Form
     {
-        public MinePopout()
+        public TextPopup()
         {
             InitializeComponent();
         }

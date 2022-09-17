@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace ProgressBar_Desktop
 {
-    public partial class MovementPopout : Form
+    public partial class MovementPopup : Form
     {
         private Point velocity = Point.Empty;
 
-        public MovementPopout()
+        public MovementPopup()
         {
             InitializeComponent();
             GenerateVelocity();

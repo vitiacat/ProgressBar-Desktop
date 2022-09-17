@@ -64,9 +64,9 @@ namespace ProgressBar_Desktop
             Config.SegmentSpeed = level.SegmentSpeed;
             Config.SegmentTime = level.SegmentTime;
             Config.SegmentValue = level.SegmentValue;
-            Config.PopoutTime = level.PopoutTime;
-            Config.PopoutsMaxCount = level.PopoutsMaxCount;
-            Config.IsPopoutsEnabled = level.IsPopoutsEnabled;
+            Config.PopupTime = level.PopoutTime;
+            Config.PopupsMaxCount = level.PopoutsMaxCount;
+            Config.IsPopupsEnabled = level.IsPopoutsEnabled;
             Config.Segments = level.Segments;
             Config.SegmentFluctuation = level.SegmentFluctuation;
             return true;

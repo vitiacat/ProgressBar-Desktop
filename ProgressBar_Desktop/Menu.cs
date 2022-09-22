@@ -85,8 +85,9 @@ namespace ProgressBar_Desktop
                 if(MessageBox.Show("Сбросить уровень?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Config.Level = 1;
-                    startNormalGameButton.Text = "Уровень " + Config.Level;
+                    Config.Score = 0;
                     SaveSettings();
+                    UpdateLevelInfo();
                 }
             }
             if(e.Button == MouseButtons.Left)

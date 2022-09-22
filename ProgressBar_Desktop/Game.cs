@@ -103,46 +103,7 @@ namespace ProgressBar_Desktop
                 segment.DoTick();
                 if(rect.Contains(segment.Position) && !isLose)
                 {
-                    switch(segment.Type)
-                    {
-                        case SegmentType.FATAL:
-                            Lose();
-                            break;
-                        case SegmentType.DOUBLE:
-                        case SegmentType.TRIABLE:
-                            var count = segment.Type == SegmentType.DOUBLE ? 2 : 3;
-                            collectedSegments.RemoveAll(s => s == SegmentType.MINUS || s == SegmentType.EMPTY);
-                            collectedSegments.AddRange(Enumerable.Repeat(SegmentType.GOOD, count));
-                            break;
-                        case SegmentType.MINUS:
-                            if(collectedSegments.Count(s => s != SegmentType.MINUS) == 0)
-                            {
-                                collectedSegments.Add(segment.Type);
-                                break;
-                            }
-                            collectedSegments.RemoveRange(0, Math.Min(5 / Config.SegmentValue, collectedSegments.Count));
-                            break;
-                        case SegmentType.EMPTY:
-                            if (collectedSegments.Count(s => s != SegmentType.EMPTY) == 0)
-                            {
-                                collectedSegments.Add(segment.Type);
-                                break;
-                            }
-                            break;
-                        case SegmentType.RM_POPOUTS:
-                            popups.GetRange(0, Math.Min(popups.Count, 5)).ForEach(f => f.Close());
-                            collectedSegments.RemoveRange(0, Math.Min(10 / Config.SegmentValue, collectedSegments.Count));
-                            break;
-                        case SegmentType.INVULNERABLE:
-                            Config.IsInvulnerable = true;
-                            invulnerableTime -= INVULNERABLE_TIME;
-                            break;
-                        default:
-                            collectedSegments.Add(segment.Type);
-                            collectedSegments.RemoveAll(s => s == SegmentType.MINUS || s == SegmentType.EMPTY);
-                            break;
-                    }
-
+                    CollectSegment(segment.Type);
                     segments.Remove(segment);
                 }
             }
@@ -210,6 +171,52 @@ namespace ProgressBar_Desktop
                 Close();
             }
 
+        }
+
+        private void CollectSegment(SegmentType segmentType)
+        {
+            switch (segmentType)
+            {
+                case SegmentType.FATAL:
+                    Lose();
+                    break;
+                case SegmentType.DOUBLE:
+                case SegmentType.TRIABLE:
+                    var count = segmentType == SegmentType.DOUBLE ? 2 : 3;
+                    collectedSegments.RemoveAll(s => s == SegmentType.MINUS || s == SegmentType.EMPTY);
+                    collectedSegments.AddRange(Enumerable.Repeat(SegmentType.GOOD, count));
+                    break;
+                case SegmentType.MINUS:
+                    if (collectedSegments.Count(s => s != SegmentType.MINUS) == 0)
+                    {
+                        collectedSegments.Add(segmentType);
+                        break;
+                    }
+                    collectedSegments.RemoveRange(0, Math.Min(5 / Config.SegmentValue, collectedSegments.Count));
+                    break;
+                case SegmentType.EMPTY:
+                    if (collectedSegments.Count(s => s != SegmentType.EMPTY) == 0)
+                    {
+                        collectedSegments.Add(segmentType);
+                        break;
+                    }
+                    break;
+                case SegmentType.RM_POPOUTS:
+                    popups.GetRange(0, Math.Min(popups.Count, 5)).ForEach(f => f.Close());
+                    collectedSegments.RemoveRange(0, Math.Min(10 / Config.SegmentValue, collectedSegments.Count));
+                    break;
+                case SegmentType.INVULNERABLE:
+                    Config.IsInvulnerable = true;
+                    invulnerableTime -= INVULNERABLE_TIME;
+                    break;
+                case SegmentType.RANDOM:
+                    CollectSegment((SegmentType) Enum.GetValues(typeof(SegmentType)).GetValue(random.Next(Segment.SegmentsCount - 1)));
+                    return;
+                default:
+                    collectedSegments.Add(segmentType);
+                    collectedSegments.RemoveAll(s => s == SegmentType.MINUS || s == SegmentType.EMPTY);
+                    break;
+            }
         }
 
         private void canvas_paint(object sender, PaintEventArgs e)

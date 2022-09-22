@@ -17,6 +17,10 @@ namespace ProgressBar_Desktop
         private const int EMPTY_SEGMENTS_COST = 2500;
         private const int MINUS_SEGMENTS_COST = 4000;
         private const int EXTRA_PRECENT_COST = 200;
+        private const int PERFECTIONIST_COST = 1500;
+        private const int ONE_ORANGE_COST = 750;
+        private const int YING_YANG_COST = 1250;
+
         private int totalScore = 0;
         private Dictionary<string, int> strings = new Dictionary<string, int>();
         private Dictionary<string, int>.Enumerator stringsEnumerator;
@@ -30,18 +34,27 @@ namespace ProgressBar_Desktop
                 stats.BlueSegments = 100 / Config.SegmentValue;
 
             }
-            var proc = (int)Math.Floor((float)Math.Min(stats.BlueSegments, stats.OrangeSegments) / Math.Max(stats.BlueSegments, stats.OrangeSegments) * 100f);
-            var extra_precent = EXTRA_PRECENT_COST * (stats.BlueSegments - 100 / Config.SegmentValue);
+            var proc = (int) ((float) stats.BlueSegments / (stats.BlueSegments + stats.OrangeSegments) * 100);
+            var extra_precent = EXTRA_PRECENT_COST * Math.Max(stats.BlueSegments - 100 / Config.SegmentValue, 0);
 
-            progressBar.Value = Math.Max(100 - proc, 0);
-            totalScore += progressBar.Value * LEVEL_SCORE_MULTIPLIER + stats.ClosedPopupsCount * CLOSED_POPUP_COST +
-                (stats.IsEmptySegments ? EMPTY_SEGMENTS_COST : stats.IsMinusSegments ? MINUS_SEGMENTS_COST : 0) + extra_precent;
+            progressBar.Value = proc;
+            totalScore +=
+                progressBar.Value * LEVEL_SCORE_MULTIPLIER
+                + stats.ClosedPopupsCount * CLOSED_POPUP_COST
+                + (stats.IsEmptySegments ? EMPTY_SEGMENTS_COST : stats.IsMinusSegments ? MINUS_SEGMENTS_COST : 0) + extra_precent 
+                + (stats.OrangeSegments == 0 && !stats.IsMinusSegments && !stats.IsEmptySegments ? PERFECTIONIST_COST : 0)
+                + (stats.OrangeSegments == 1 ? ONE_ORANGE_COST : 0)
+                + (stats.OrangeSegments == stats.BlueSegments ? YING_YANG_COST : 0);
 
             strings.Add("Очки за уровень: {0}", progressBar.Value * LEVEL_SCORE_MULTIPLIER);
             if(stats.ClosedPopupsCount > 0) strings.Add("Закрыто " + stats.ClosedPopupsCount + " поп-апов: {0}", stats.ClosedPopupsCount * CLOSED_POPUP_COST);
             if (stats.IsEmptySegments) strings.Add("Пустота: {0}", EMPTY_SEGMENTS_COST);
             if (stats.IsMinusSegments) strings.Add("Отрицательно: {0}", MINUS_SEGMENTS_COST);
             if (stats.BlueSegments > 100 / Config.SegmentValue) strings.Add("Экстра-проценты: {0}", extra_precent);
+            if (stats.OrangeSegments == 0 && !stats.IsMinusSegments && !stats.IsEmptySegments)
+                strings.Add("Перфекционист: {0}", PERFECTIONIST_COST);
+            if (stats.OrangeSegments == 1) strings.Add("95%: {0}", ONE_ORANGE_COST);
+            if (stats.OrangeSegments == stats.BlueSegments) strings.Add("Инь-янь: {0}", YING_YANG_COST);
 
             stringsEnumerator = strings.GetEnumerator();
             stringsEnumerator.MoveNext();

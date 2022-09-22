@@ -12,6 +12,7 @@ namespace ProgressBar_Desktop
         public PointF Position { get; set; }
         public float Speed { get; set; }
         public SegmentType Type { get; private set; }
+
         public float FluctuationX { get; private set; }
         public float Fluctuation { get; private set; }
 
@@ -38,9 +39,13 @@ namespace ProgressBar_Desktop
             { SegmentType.MINUS, "-" },
             { SegmentType.EMPTY, "" },
             { SegmentType.RM_POPOUTS, "X" },
-            { SegmentType.INVULNERABLE, "~" }
+            { SegmentType.INVULNERABLE, "~" },
+            { SegmentType.RANDOM, "?" }
         };
         public static Size size = new Size(17, 27);
+
+        private Color oldColor;
+        private int? newRandomColorTime = null;
 
         public Segment(PointF position, SegmentType type, float speed)
         {
@@ -53,7 +58,18 @@ namespace ProgressBar_Desktop
         public void Draw(Graphics g)
         {
             var rect = new RectangleF(Position, size);
-            g.FillRectangle(new SolidBrush(SegmentsColors[Type]), rect);
+            var color = Type == SegmentType.RANDOM ? oldColor : SegmentsColors[Type];
+            if(Type == SegmentType.RANDOM)
+            {
+                newRandomColorTime++;
+                if(newRandomColorTime >= 25 || newRandomColorTime is null)
+                {
+                    newRandomColorTime = 0;
+                    color = SegmentsColors.ElementAt(new Random().Next(SegmentsCount - 1)).Value;
+                    oldColor = color;
+                }
+            }
+            g.FillRectangle(new SolidBrush(color), rect);
 
             g.DrawString(SegmentsChars[Type], new Font(FontFamily.GenericSerif, 12, FontStyle.Bold), Brushes.White, Utils.CenterRectangle(rect), Utils.CenteredStringFormat);
         }
@@ -79,6 +95,7 @@ namespace ProgressBar_Desktop
         MINUS,
         EMPTY,
         RM_POPOUTS,
-        INVULNERABLE
+        INVULNERABLE,
+        RANDOM
     }
 }

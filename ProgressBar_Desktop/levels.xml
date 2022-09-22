@@ -16,4 +16,8 @@
 	<level id="14" segmentSpeed="10" segmentTime="75" segmentValue="10" segmentFluctuation="1,5" segments="good,bad,fatal,empty,minus,double,triable,rm_popouts" isPopoutsEnabled="true" popoutsMaxCount="50" popoutTime="25" />
 	<level id="15" segmentSpeed="15,25" segmentTime="40" segmentValue="5" segmentFluctuation="10,35" segments="good,bad,fatal,empty,minus,double,triable,rm_popouts" isPopoutsEnabled="true" popoutsMaxCount="5" popoutTime="120" />
 	<level id="16" segmentSpeed="7,35" segmentTime="75" segmentValue="2" segmentFluctuation="16" segments="good,bad,fatal,empty,minus,double,triable,rm_popouts" isPopoutsEnabled="true" popoutsMaxCount="10" popoutTime="175" />
+	<level id="17" segmentSpeed="6,25" segmentTime="90" segmentValue="5" segmentFluctuation="8" segments="good,bad,fatal,empty,minus,double,triable,rm_popouts,random" isPopoutsEnabled="true" popoutsMaxCount="15" popoutTime="175" />
+	<level id="18" segmentSpeed="9,75" segmentTime="75" segmentValue="5" segmentFluctuation="15,35" segments="good,bad,fatal,empty,minus,double,triable,rm_popouts,random" isPopoutsEnabled="true" popoutsMaxCount="8" popoutTime="125" />
+	<level id="19" segmentSpeed="13,50" segmentTime="55" segmentValue="5" segmentFluctuation="21" segments="good,bad,fatal,empty,minus,double,triable,rm_popouts,random" isPopoutsEnabled="true" popoutsMaxCount="12" popoutTime="95" />
+	<level id="20" segmentSpeed="15" segmentTime="60" segmentValue="5" segmentFluctuation="18,5" segments="good,bad,fatal,empty,minus,double,triable,rm_popouts,random" isPopoutsEnabled="true" popoutsMaxCount="20" popoutTime="78" />
 </levels> 
